@@ -1,3 +1,17 @@
+import styled from "styled-components";
+
+const SFooter = styled.div`
+  padding: 75px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #555;
+`;
+
 export const Footer = () => {
-  return <div>Footer</div>;
+  return (
+    <SFooter>
+      <span>&copy; JooMovie {new Date().getFullYear()}</span>
+    </SFooter>
+  );
 };

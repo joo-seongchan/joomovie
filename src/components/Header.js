@@ -4,6 +4,7 @@ import { mainStyle } from "../styles/globalStyle";
 
 const SHeader = styled.div`
   width: 100%;
+  max-width: 100%;
   padding: 80px;
   height: 80px;
   display: flex;
