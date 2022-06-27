@@ -1,36 +1,11 @@
 import { useEffect, useState } from "react";
-import styled from "styled-components";
 import { movieApi } from "../../../api";
-import { mainStyle } from "../../../styles/globalStyle";
+import { imgNum } from "../../../constants/constant";
 import { Loading } from "../../Loading";
+import { MainBanner } from "./MainBanner";
 
 // console.log(movieApi.nowPlaying());
 // console.log(movieApi.nowPlaying());
-
-const MainBanner = styled.section`
-  height: 80vh;
-  background-color: gray;
-  padding: ${mainStyle.padding};
-  padding-top: 250px;
-`;
-
-const Title = styled.h1`
-  max-width: 650px;
-  width: 100%;
-  font-size: 80px;
-  font-weight: 700;
-  line-height: 6rem;
-`;
-
-const Desc = styled.p`
-  font-size: 18px;
-  margin-top: 20px;
-  max-width: 700px;
-  width: 100%;
-  line-height: 2rem;
-  opacity: 0.9;
-  font-weight: 300;
-`;
 
 export const Home = () => {
   const [playing, setPlaying] = useState();
@@ -57,7 +32,7 @@ export const Home = () => {
           data: { results: upCommingData },
         } = await movieApi.upComming();
         setUpComming(upCommingData);
-        // setLoading(false);
+        setLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -73,18 +48,7 @@ export const Home = () => {
       {loading ? (
         <Loading />
       ) : (
-        <>
-          {playing && (
-            <MainBanner
-              style={{
-                background: `url(https://image.tmdb.org/t/p/original/${playing[0].backdrop_path}) no-repeat center/cover`,
-              }}
-            >
-              <Title>{playing[0].title}</Title>
-              <Desc> {playing[0].overview.slice(0, 100) + "..."} </Desc>
-            </MainBanner>
-          )}
-        </>
+        <>{playing && <MainBanner playData={playing[imgNum]} />}</>
       )}
     </div>
   );
