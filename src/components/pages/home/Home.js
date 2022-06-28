@@ -3,6 +3,8 @@ import { movieApi } from "../../../api";
 import { imgNum } from "../../../constants/constant";
 import { Loading } from "../../Loading";
 import { MainBanner } from "./MainBanner";
+import { Container } from "../../Container";
+import { Movies } from "./Movies";
 
 // console.log(movieApi.nowPlaying());
 // console.log(movieApi.nowPlaying());
@@ -48,7 +50,18 @@ export const Home = () => {
       {loading ? (
         <Loading />
       ) : (
-        <>{playing && <MainBanner playData={playing[imgNum]} />}</>
+        <>
+          {playing && (
+            <>
+              <MainBanner playData={playing[imgNum]} />
+              <Container>
+                <Movies movieData={playing} title="현재 상영 영화" />
+                <Movies movieData={rated} title="인기 영화" />
+                <Movies movieData={upComming} title="개봉 예정 영화" />
+              </Container>
+            </>
+          )}
+        </>
       )}
     </div>
   );
