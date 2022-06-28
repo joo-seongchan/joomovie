@@ -10,12 +10,13 @@
 - [x] Helmet
 - [x] Get Api
 - [ ] Container
+- [ ] Responsive
 
 ## Main page
 
 - [x] Use Effect
 - [x] try catch
-- [ ] Loading
+- [x] Loading
 - [ ] Header Event
 - [ ] Slide
 

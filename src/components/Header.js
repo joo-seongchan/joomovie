@@ -4,8 +4,8 @@ import { mainStyle } from "../styles/globalStyle";
 
 const SHeader = styled.div`
   width: 100%;
-  max-width: 100%;
-  padding: 80px;
+  /* max-width: 80%; */
+  padding: ${mainStyle.padding};
   height: 80px;
   display: flex;
   justify-content: space-between;
@@ -13,12 +13,19 @@ const SHeader = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 9999;
+  @media screen and (max-width: 500px) {
+    padding: ${mainStyle.moPadding};
+  }
 `;
 const Logo = styled.h3`
   font-size: 28px;
   font-weight: 800;
   a {
     color: ${mainStyle.mainColor};
+  }
+  @media screen and (max-width: 500px) {
+    font-size: 24px;
   }
 `;
 const MenuWrap = styled.ul`
@@ -30,6 +37,9 @@ const Menu = styled.li`
   margin-left: 100px;
   font-size: 18px;
   font-weight: 500;
+  @media screen and (max-width: 500px) {
+    margin-left: 20px;
+  }
 `;
 
 export const Header = () => {
