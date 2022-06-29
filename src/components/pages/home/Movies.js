@@ -23,7 +23,7 @@ const MovieTitle = styled.div`
 
 export const Movies = ({ movieData, title }) => {
   const params = {
-    breakpoint: {
+    breakpoints: {
       320: {
         slidesPerView: 2.2,
         spaceBetween: 10,
@@ -41,7 +41,7 @@ export const Movies = ({ movieData, title }) => {
       <Swiper modules={[Navigation]} navigation {...params}>
         {movieData.map((play) => (
           <SwiperSlide key={play.id}>
-            <Link to={"#"}>
+            <Link to={`/detail/${play.id}`}>
               <MovieImg
                 style={{
                   background: `url(${imgUrl}${play.backdrop_path}) no-repeat center/cover`,

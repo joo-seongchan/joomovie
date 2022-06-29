@@ -3,7 +3,7 @@ import { mainStyle } from "../styles/globalStyle";
 
 const Section = styled.div`
   padding: ${mainStyle.padding};
-  @media screen and (width: 500px) {
+  @media screen and (max-width: 500px) {
     padding: ${mainStyle.moPadding};
   }
 `;

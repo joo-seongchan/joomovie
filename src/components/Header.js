@@ -41,7 +41,7 @@ const Menu = styled.li`
   font-weight: 500;
   @media screen and (max-width: 500px) {
     margin-left: 20px;
-    display: none;
+    /* display: none; */
   }
 `;
 const Icon = styled.div`
