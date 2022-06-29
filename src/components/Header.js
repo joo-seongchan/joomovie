@@ -46,16 +46,28 @@ const Menu = styled.li`
 `;
 const Icon = styled.div`
   font-size: 28px;
+  display: none;
 `;
 const MoMenuWrap = styled.ul`
-  /* width: 100vw;
+  width: 100vw;
   height: 100vh;
   background-color: black;
   position: absolute;
   top: 0;
-  right: 0; */
+  right: 0;
+  display: none;
 `;
-const MoMenu = styled.li``;
+const MoMenu = styled.li`
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gray;
+  a {
+    font-size: 70px;
+  }
+`;
 
 export const Header = () => {
   return (

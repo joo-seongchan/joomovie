@@ -3,7 +3,7 @@ import { imgUrl } from "../../../constants/constant";
 import { mainStyle } from "../../../styles/globalStyle";
 
 const Banner = styled.section`
-  height: 100vh;
+  height: 90vh;
   background-color: gray;
   padding: ${mainStyle.padding};
   padding-top: 250px;

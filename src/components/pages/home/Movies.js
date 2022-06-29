@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper";
 import { imgUrl } from "../../../constants/constant";
 import "swiper/css";
+import "swiper/css/navigation";
 
 const Container = styled.div`
   margin-top: 120px;
@@ -20,10 +22,23 @@ const MovieTitle = styled.div`
 `;
 
 export const Movies = ({ movieData, title }) => {
+  const params = {
+    breakpoint: {
+      320: {
+        slidesPerView: 2.2,
+        spaceBetween: 10,
+      },
+      640: {
+        slidesPerView: 5.2,
+        spaceBetween: 20,
+      },
+    },
+  };
+
   return (
     <Container>
       <Title>{title}</Title>
-      <Swiper slidesPerView={5.2} spaceBetween={20}>
+      <Swiper modules={[Navigation]} navigation {...params}>
         {movieData.map((play) => (
           <SwiperSlide key={play.id}>
             <Link to={"#"}>
