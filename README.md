@@ -20,8 +20,8 @@
 - [x] Slide
 - [x] Slide Link
 - [x] Slide Navigation
-- [ ] 404 Image
-- [ ] Header Event
+- [x] 404 Image
+- [x] Header Event
 
 ## Detail page
 

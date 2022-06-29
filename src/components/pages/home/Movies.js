@@ -44,7 +44,11 @@ export const Movies = ({ movieData, title }) => {
             <Link to={`/detail/${play.id}`}>
               <MovieImg
                 style={{
-                  background: `url(${imgUrl}${play.backdrop_path}) no-repeat center/cover`,
+                  background: `url(${
+                    play.backdrop_path
+                      ? `${imgUrl}${play.backdrop_path}`
+                      : `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwR31HeEDfrHDKRqOyKahOhSeSml9iTQLQFg&usqp=CAU`
+                  }) no-repeat center/cover`,
                 }}
               />
               <MovieTitle>{play.title}</MovieTitle>

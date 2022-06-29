@@ -3,6 +3,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { mainStyle } from "../styles/globalStyle";
+import { useState } from "react";
 
 const SHeader = styled.div`
   width: 100%;
@@ -15,6 +16,8 @@ const SHeader = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  background-color: ${(props) => props.bgColor};
+  transition: 0.5s;
   z-index: 9999;
   @media screen and (max-width: 500px) {
     padding: ${mainStyle.moPadding};
@@ -70,8 +73,22 @@ const MoMenu = styled.li`
 `;
 
 export const Header = () => {
+  const [bg, setBg] = useState("");
+
+  const scrollEvent = () => {
+    const sct = window.pageYOffset;
+    const a = document.querySelector(".header").offsetHeight;
+    console.log(a);
+    if (sct > 500) {
+      setBg("#1d1d1d");
+    } else {
+      setBg("transparent");
+    }
+  };
+
+  window.addEventListener("scroll", scrollEvent);
   return (
-    <SHeader>
+    <SHeader className="header" bgColor={bg}>
       <Logo>
         <Link to={"/"}>JooMovie</Link>
       </Logo>
