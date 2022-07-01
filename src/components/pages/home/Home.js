@@ -5,6 +5,7 @@ import { Loading } from "../../Loading";
 import { MainBanner } from "./MainBanner";
 import { Container } from "../../Container";
 import { Movies } from "./Movies";
+import { PageTitle } from "../../PageTitle";
 
 // console.log(movieApi.nowPlaying());
 // console.log(movieApi.nowPlaying());
@@ -47,6 +48,7 @@ export const Home = () => {
   // console.log(`개봉예정 영화 :`, upComming);
   return (
     <div>
+      <PageTitle title={"Home"} />
       {loading ? (
         <Loading />
       ) : (

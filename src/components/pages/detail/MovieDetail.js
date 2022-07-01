@@ -110,33 +110,6 @@ const Point = styled.div`
     margin-top: 10px;
   }
 `;
-const MovieWrap = styled.div`
-  width: 100%;
-  margin-top: 100px;
-  display: flex;
-  justify-content: space-between;
-  @media screen and (max-width: 500px) {
-    display: block;
-    margin-top: 30px;
-  }
-`;
-const Movie = styled.div`
-  width: 48%;
-  height: 300px;
-  background-color: gray;
-  @media screen and (max-width: 500px) {
-    width: 100%;
-  }
-`;
-const Text = styled.p`
-  width: 48%;
-  font-size: 22px;
-  line-height: 30px;
-  @media screen and (max-width: 500px) {
-    width: 100%;
-    font-size: 12px;
-  }
-`;
 
 export const MovieDetail = ({ detailDb }) => {
   return (
@@ -174,10 +147,6 @@ export const MovieDetail = ({ detailDb }) => {
             <span>{detailDb.vote_average}</span>
           </Point>
         </InfoWrap>
-        <MovieWrap>
-          <Movie></Movie>
-          <Text>{detailDb.overview}</Text>
-        </MovieWrap>
       </Container>
     </>
   );

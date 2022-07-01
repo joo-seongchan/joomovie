@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faClose } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { mainStyle } from "../styles/globalStyle";
@@ -18,7 +18,7 @@ const SHeader = styled.div`
   left: 0;
   background-color: ${(props) => props.bgColor};
   transition: 0.5s;
-  z-index: 9999;
+  z-index: 9;
   @media screen and (max-width: 500px) {
     padding: ${mainStyle.moPadding};
   }
@@ -26,6 +26,7 @@ const SHeader = styled.div`
 const Logo = styled.h3`
   font-size: 28px;
   font-weight: 800;
+  z-index: 10;
   a {
     color: ${mainStyle.mainColor};
   }
@@ -44,36 +45,53 @@ const Menu = styled.li`
   font-weight: 500;
   @media screen and (max-width: 500px) {
     margin-left: 20px;
-    /* display: none; */
+    display: none;
   }
 `;
 const Icon = styled.div`
   font-size: 28px;
   display: none;
+  @media screen and (max-width: 500px) {
+    display: block;
+  }
 `;
 const MoMenuWrap = styled.ul`
   width: 100vw;
   height: 100vh;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
   position: absolute;
   top: 0;
-  right: 0;
-  display: none;
+  left: ${(props) => props.left};
+  transition: 0.5s;
+  /* display: none; */
 `;
 const MoMenu = styled.li`
   width: 100%;
   height: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
   border: 1px solid gray;
   a {
+    display: block;
+    width: 100%;
+    height: 100%;
     font-size: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+`;
+
+const CloseBtn = styled.li`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
 `;
 
 export const Header = () => {
   const [bg, setBg] = useState("");
+  const [left, setLeft] = useState("100%");
 
   const scrollEvent = () => {
     const sct = window.pageYOffset;
@@ -87,6 +105,9 @@ export const Header = () => {
   };
 
   window.addEventListener("scroll", scrollEvent);
+
+  const handleClose = () => setLeft("100%");
+
   return (
     <SHeader className="header" bgColor={bg}>
       <Logo>
@@ -100,15 +121,18 @@ export const Header = () => {
         <Menu>
           <Link to={"search"}>Search</Link>
         </Menu>
-        <Icon>
+        <Icon onClick={() => setLeft("0")}>
           <FontAwesomeIcon icon={faBars} />
         </Icon>
       </MenuWrap>
-      <MoMenuWrap>
-        <MoMenu>
+      <MoMenuWrap left={left}>
+        <CloseBtn onClick={handleClose}>
+          <FontAwesomeIcon icon={faClose} />
+        </CloseBtn>
+        <MoMenu onClick={handleClose}>
           <Link to={"/"}>Home</Link>
         </MoMenu>
-        <MoMenu>
+        <MoMenu onClick={handleClose}>
           <Link to={"search"}>Search</Link>
         </MoMenu>
       </MoMenuWrap>
