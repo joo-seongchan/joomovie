@@ -41,6 +41,22 @@ const Desc = styled.p`
   }
 `;
 
+const Cover = styled.div`
+  width: 100vw;
+  height: 90vh;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.5)
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  @media screen and (max-width: 500px) {
+    height: 100vh;
+  }
+`;
+
 export const MainBanner = ({ playData }) => {
   return (
     <Banner
@@ -48,6 +64,7 @@ export const MainBanner = ({ playData }) => {
         background: `url(${imgUrl}${playData.backdrop_path}) no-repeat center/cover`,
       }}
     >
+      <Cover />
       <Title>{playData.title}</Title>
       <Desc> {playData.overview.slice(0, 100) + "..."} </Desc>
     </Banner>
