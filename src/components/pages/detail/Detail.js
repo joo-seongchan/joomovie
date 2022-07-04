@@ -21,7 +21,7 @@ const MovieWrap = styled.div`
   }
   iframe {
     width: 48%;
-    height: 300px;
+    height: 350px;
     @media screen and (max-width: 500px) {
       width: 100%;
     }
@@ -54,7 +54,7 @@ export const Detail = () => {
         const {
           data: { results: videoDetailDb },
         } = await movieApi.video(id);
-        setVideoDb(videoDetailDb.length === 0 ? null : videoDetailDb[0].key);
+        setVideoDb(videoDetailDb.length === 0 ? true : videoDetailDb[0].key);
 
         setLoading(false);
       } catch (error) {
@@ -63,7 +63,7 @@ export const Detail = () => {
     };
     movieData();
   }, []);
-  console.log(videoDb);
+  console.log(detailDb);
   return (
     <div>
       <PageTitle title={"Detail"} />
@@ -76,7 +76,11 @@ export const Detail = () => {
           {videoDb && (
             <MovieWrap>
               <iframe
-                src={`https://www.youtube.com/embed/${videoDb}`}
+                src={
+                  videoDb
+                    ? `https://qph.cf2.quoracdn.net/main-qimg-ae44ee18db5078485b0955f941260386`
+                    : `https://www.youtube.com/embed/${videoDb}`
+                }
                 allowfullscreen
               ></iframe>
               <Text>{detailDb.overview}</Text>

@@ -1,6 +1,6 @@
 export const ScrollTop = () => {
   window.scrollTo({
-    top: 200,
+    top: 0,
     left: 0,
     behavior: "smooth",
   });

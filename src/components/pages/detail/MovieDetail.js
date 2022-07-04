@@ -85,13 +85,17 @@ const Genres = styled.ul`
     margin-top: 10px;
     display: flex;
     justify-content: center;
-    li:after {
+    /* li:after {
       content: "";
       font-size: 14px;
       height: 20px;
       margin: 0 10px;
-    }
+    } */
   }
+`;
+
+const List = styled.li`
+  margin: 5px;
 `;
 const Point = styled.div`
   width: 25%;
@@ -138,7 +142,10 @@ export const MovieDetail = ({ detailDb }) => {
             <FontAwesomeIcon icon={faCircleQuestion} />
             <span>
               {detailDb.genres.map((genre) => (
-                <li key={genre.id}>{genre.name}</li>
+                <>
+                  {console.log(genre.length)}
+                  <List key={genre.id}>{genre.name}</List>
+                </>
               ))}
             </span>
           </Genres>
