@@ -53,6 +53,7 @@ export const Search = () => {
     getValues,
     formState: { errors },
     setError,
+    clearErrors,
   } = useForm({
     mode: "onChange",
   });
@@ -83,7 +84,7 @@ export const Search = () => {
 
   // console.log(searchTerm);
 
-  console.log(errors);
+  // console.log(errors);
   //  => 폼상태에 에러 처리 담당
 
   return (
@@ -95,13 +96,16 @@ export const Search = () => {
             <Input
               {...register("search", {
                 required: "내용은 필수 입니다.~_~",
+                onChange() {
+                  clearErrors("result");
+                },
               })}
               type="text"
               placeholder="영화 검색...."
             />
 
-            {errors?.search?.message}
-            {errors?.result?.message}
+            {errors?.search?.massage}
+            {errors?.result?.massage}
           </form>
         </SearchWrap>
 
