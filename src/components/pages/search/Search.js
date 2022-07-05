@@ -30,6 +30,10 @@ const ConWrap = styled.div`
   column-gap: 30px;
   row-gap: 50px;
   margin-top: 100px;
+  @media screen {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 const Con = styled.div`
   /* width: 200px; */
