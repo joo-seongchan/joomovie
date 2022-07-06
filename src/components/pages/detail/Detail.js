@@ -63,7 +63,7 @@ export const Detail = () => {
     };
     movieData();
   }, []);
-  console.log(detailDb);
+  // console.log(detailDb);
   return (
     <div>
       <PageTitle title={"Detail"} />
@@ -78,8 +78,8 @@ export const Detail = () => {
               <iframe
                 src={
                   videoDb
-                    ? `https://qph.cf2.quoracdn.net/main-qimg-ae44ee18db5078485b0955f941260386`
-                    : `https://www.youtube.com/embed/${videoDb}`
+                    ? `https://www.youtube.com/embed/${videoDb} `
+                    : `https://qph.cf2.quoracdn.net/main-qimg-ae44ee18db5078485b0955f941260386`
                 }
                 allowfullscreen
               ></iframe>
