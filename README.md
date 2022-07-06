@@ -10,7 +10,7 @@
 - [x] Helmet
 - [x] Get Api
 - [x] Header Responsive
-- [ ] Main Container Responsive
+- [x] Main Container Responsive
 
 ## Main page
 
@@ -27,9 +27,9 @@
 
 - [x] Link
 - [x] Responsive
-- [ ] scroll Error
-- [ ] Video
+- [x] scroll Error
+- [x] Video
 
 ## Search page
 
-- [] Css Grid
+- [x] Css Grid
