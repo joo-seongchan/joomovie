@@ -30,7 +30,7 @@
     "eject": "react-scripts eject",
     "deploy" : "gh-pages -d build"
   },
-  "homepage":"https://joo-seongchan.github.io/joo-seongchan/joomovie",
+  "homepage":"https://joo-seongchan.github.io/joomovie",
   "eslintConfig": {
     "extends": [
       "react-app",
