@@ -30,7 +30,7 @@ const ConWrap = styled.div`
   column-gap: 30px;
   row-gap: 50px;
   margin-top: 100px;
-  @media screen {
+  @media screen and (max-width: 500px) {
     display: flex;
     flex-direction: column;
   }
